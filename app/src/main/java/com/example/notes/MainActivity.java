@@ -8,12 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -29,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         sharedPreferences = getApplicationContext().getSharedPreferences("com.example.zappycode.notes", Context.MODE_PRIVATE);
         ListView listView = findViewById(R.id.listView);
 
@@ -83,25 +85,19 @@ public class MainActivity extends AppCompatActivity {
     // MENU
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.add_note_menu, menu);
+    public void note(View view) {
+        Button buttonOne = findViewById(R.id.add_note);
+        buttonOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        return super.onCreateOptionsMenu(menu);
+                    Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
+                    startActivity(intent);
+
+                    
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-
-        if (item.getItemId() == R.id.add_note) {
-            Intent intent = new Intent(getApplicationContext(), NoteEditorActivity.class);
-            startActivity(intent);
-
-            return true;
-        }
-
-        return false;
-    }
+    
 }
