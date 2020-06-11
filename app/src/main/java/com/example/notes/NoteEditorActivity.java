@@ -44,7 +44,7 @@ public class NoteEditorActivity extends AppCompatActivity {
                 MainActivity.notes.set(noteId, String.valueOf(charSequence));
                 MainActivity.arrayAdapter.notifyDataSetChanged();
 
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.zappycode.notes", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.notes", Context.MODE_PRIVATE);
                 HashSet<String> set = new HashSet<>(MainActivity.notes);
                 sharedPreferences.edit().putStringSet("notes", set).apply();
             }

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("com.example.zappycode.notes", Context.MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences("com.example.notes", Context.MODE_PRIVATE);
         ListView listView = findViewById(R.id.listView);
 
         HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("notes", null);
